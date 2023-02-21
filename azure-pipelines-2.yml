@@ -8,7 +8,11 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'warfile'
+    publishLocation: 'Container'
 steps:
 - task: Maven@3
   inputs:
